@@ -10,6 +10,8 @@ form.addEventListener('submit', event => {
   const stepValue = Number(step.value);
   const amountValue = Number(amount.value);
 
+  event.currentTarget.reset();
+
   for (let i = 1; i <= amountValue; i++) {
     createPromise(i, delayValue)
       .then(({ position, delay }) => {

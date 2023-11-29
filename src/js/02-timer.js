@@ -40,12 +40,14 @@ flatpickr(datetimePicker, options);
 startButton.addEventListener('click', startTimer);
 
 function startTimer() {
+  datetimePicker.disabled = true;
   startButton.disabled = true;
   timerId = setInterval(() => {
     const currentTime = new Date();
     const deltaTime = selectedDate - currentTime;
     if (deltaTime <= 0) {
       clearInterval(timerId);
+      datetimePicker.disabled = false;
       return;
     }
     updateTimer(convertMs(deltaTime));
